@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script language="JavaScript1.3">
+function cambia_valores()
+         {var fecha_real=new Date();
+          var hora_real=fecha_real.getHours();
+          var mins_real=fecha_real.getMinutes();
+          if (mins_real < 30)
+             {valor1=hora_real+":00";
+              valor2=hora_real+":30";
+              valor3=(hora_real+1)+":00";
+              valor4=(hora_real+1)+":30";
+             }
+          else
+             {valor1=hora_real+":30";
+              valor2=(hora_real+1)+":00";
+              valor3=(hora_real+1)+":30";
+              valor4=(hora_real+2)+":00";
+             };   
+		  if ((hora_real == 22) && (mins_real >= 30))
+		     {valor4="00:00";
+             };
+		  if ((hora_real == 23) && (mins_real < 30))
+		     {valor3="00:00";
+			  valor4="00:30";
+			 };
+		  if ((hora_real == 23) && (mins_real >= 30))
+		     {valor2="00:00";
+			  valor3="00:30";
+			  valor4="01:00";
+			 };	 	 
+          var elemento=document.getElementById("tiempo1");
+          elemento.childNodes[0].nodeValue=valor1;
+          var elemento2=document.getElementById("tiempo2");
+          elemento2.childNodes[0].nodeValue=valor2;
+          var elemento3=document.getElementById("tiempo3");
+          elemento3.childNodes[0].nodeValue=valor3;
+          var elemento4=document.getElementById("tiempo4");
+          elemento4.childNodes[0].nodeValue=valor4; 
+         };
+		 
+		 
+function comprobar(minutos1)
+         {if (minutos1 == 0)
+		     {var fecha2=new Date();
+			  var mins_comprueba=fecha2.getMinutes();
+			  if (mins_comprueba >= 30)
+			     {
+					 //parent.marco_nuevo_3.location.reload();
+				 	location.reload(true);
+				 }; 
+			 }
+		  else
+		     {var fecha2=new Date();
+			  var mins_comprueba=fecha2.getMinutes();
+			  if (mins_comprueba < 30)
+			     {//parent.marco_nuevo_3.location.reload();
+					 location.reload(true);
+				 };
+			 }; 
+		 };
+		 
+fecha_inicio=new Date();
+hora_inicio1=fecha_inicio.getHours();
+mins_inicio1=fecha_inicio.getMinutes();
+if (mins_inicio1 < 30)
+   {mins_inicio1=0;
+   }
+else
+   {mins_inicio1=30;
+   };
+comp=setInterval("comprobar(mins_inicio1)",2000);
+      
+   
+		 
+
+</script>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div style=" background-image: url(skin/fondoHoras.png)" align="right">
+<table width="625" border="0" cellspacing="0" cellpadding="0" height="50" >
+  <tr> 
+   
+   	<td width="170"></td>
+
+    <td width="114" align="center" valign="middle"  ><strong><font color="#000000" size="3" face="Verdana, Arial, Helvetica, sans-serif" id="tiempo1" name="tiempo1">.</font></strong>
+	</td>
+    
+    <td width="113" align="center" valign="middle"  ><strong><font color="#000000" size="3" face="Verdana, Arial, Helvetica, sans-serif" id="tiempo2" name="tiempo2">.</font></strong></td>
+    
+    <td width="114" align="center" valign="middle" ><strong><font color="#000000" size="3" face="Verdana, Arial, Helvetica, sans-serif" id="tiempo3" name="tiempo3">.</font></strong></td>
+    
+    <td width="113" align="center" valign="middle"  ><strong><font color="#000000" size="3" face="Verdana, Arial, Helvetica, sans-serif" id="tiempo4" name="tiempo4">.</font></strong></td>
+  </tr>
+</table>
+</div>
+<script language="JavaScript1.3">
+cambia_valores();
+</script>
+</body>
+</html>

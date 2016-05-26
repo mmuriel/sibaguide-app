@@ -1,0 +1,149 @@
+@charset "utf-8";
+
+body {
+	margin: 0px;
+	padding: 0px;
+
+}
+
+iframe {
+    overflow:hidden;
+}
+
+.rounded_box {
+	
+	-moz-border-radius: 5px;
+
+}
+.rounded_box_15 {
+	-moz-border-radius: 15px;
+}
+
+.rounded_box_10 {
+	-moz-border-radius: 15px;
+}
+.boxShadow {
+	
+	-moz-box-shadow: 2px 2px 2px #000000; /* Firefox 3.6 and earlier */
+	-webkit-box-shadow: 2px 2px 2px #000000; /* Safari and Chrome */
+	box-shadow: 2px 2px 2px #000000;
+}
+.box_complemento_grilla {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+	float: left;
+	width: 115px;
+}
+
+
+
+#main_box #container1 {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #FFF;
+	height: 22px;
+	width: 631px;
+	position: absolute;
+	left: 1px;
+	top: 0px;
+}
+#main_box #container1 #date_box {
+	float: left;
+	width: 380px;
+	position: relative;
+	margin-top: 0px;
+	margin-left: 20px;
+	color: black;
+}
+#main_box #container1 #clock_box {
+	float: right;
+	width: 230px;
+	position: relative;
+	margin-top: 0px;
+	color: black;
+}
+
+
+
+
+/*
+
+
+
+*/
+
+#main_box {
+	float: left;
+	height: 480px;
+	width: 637px;
+	background-color: #fff;
+	background-image: url("../skin/background_main.png");
+	background-repeat: repeat-x;
+}
+
+#main_box #video_box {
+	height: 240px;
+	width: 320px;
+	position: absolute;
+	left: 2px;
+	top: 22px;
+}
+
+#main_box #img_box {
+	height: 240px;
+	width: 315px;
+	position: relative;
+	left: 322px;
+	top: 22px;
+	
+}
+
+
+
+
+#main_box #grid_box_compliment {
+	height: 30px;
+	width: 635px;
+	position: absolute;
+	left: 1px;
+	top: 262px;
+	background-image: url(../skin/fondo_horas.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+#main_box #grid_box_compliment #logo_operador {
+	background-color: #FFF;
+	height: 44px;
+	width: 52px;
+	position: absolute;
+	z-index: 10;
+	left: 40px;
+	top: 1px;
+}
+#main_box #grid_box_compliment #box_complemento_horas {
+	width: 460px;
+	position: absolute;
+	left: 175px;
+	top: 0px;
+	margin-top: 3px;
+}
+
+
+#main_box #grid_box {
+    background-color: #000066;
+    height: 158px;
+    left: 1px;
+    position: absolute;
+    top: 292px;
+    width: 635px;
+}
+#main_box #scroll_box {
+	background-color: #FFF;
+	height: 31px;
+	width: 635px;
+	position: absolute;
+	left: 1px;
+	top: 448px;
+}

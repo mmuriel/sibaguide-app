@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script language="JavaScript">
+//========================================================
+//Funciones
+function xmlLoaded()
+	     {//Limpiamos de nodos tipo texto
+		  //=================================================================================
+		  //Determinamos la cantidad de nodos (de texto y elements) existen en el archivo xml
+		  var valor4=xmlDoc.firstChild.childNodes.length;	 
+		  valor4--;
+		  //=================================================================================
+		  //generamos una lista que va a almacenar los indices de los nodos de texto
+		  var lista_indices= new Array();
+		  //=================================================================================
+		  //Determinamos los indices que corresponden a nodos de tipo texto
+		  for (i=0;i<=valor4;i++)
+		      {if (xmlDoc.firstChild.childNodes[i].nodeType==3)
+		   	      {lista_indices.push(i);
+		   		  };
+		   	  };
+		  //================================================================================
+		  //Eliminamos los nodos de tipo texto existentes en el objeto XML cargado.  
+		  var elemen_list_indices=lista_indices.length;
+		  elemen_list_indices--;	  
+		  for (i=0;i<=elemen_list_indices;i++)
+		      {valor_prueba=xmlDoc.firstChild.removeChild(xmlDoc.firstChild.childNodes[i]);
+	          };
+	      //================================================================================
+		  //Generamos el funcionamiento general de la aplicacion
+		  //1. Carga del XML el nombre de la lista.
+		  var hora_now = new Date();
+          var hora_1= hora_now.getHours();
+          //Tomamos el contenido que viene del archivo XML
+          var cont_xml=xmlDoc.firstChild.childNodes[hora_1].getAttribute('value');
+		  //==============================================
+		  //Cargamos el marco con el contenido
+		  parent.marco2.location="videos/"+cont_xml;
+
+		  
+	     };
+//===========================================
+//Funcion que verifica el control  del 
+//programa por los cambios existentes en la 
+//bandera.		 
+function ctrl_flag()
+         {xmlFlg3=document.implementation.createDocument("", "", null);
+	      xmlFlg3.onload=cargadorXml;
+          xmlFlg3.load("video.xml");
+		 };
+//===========================================
+//Funcion que verifica el control  del 
+//programa por el tiempo.		 
+function ctrl_time()
+         {var ctrl_tiempo=new Date()
+		  ctrl_tiempo2= ctrl_tiempo.getHours();
+		  if (ctrl_tiempo2 != ctrl_tiempo_ini)
+		     {//delete xmlDoc,xmlFlag2,xmlFlag3;
+			  window.alert("Recargando por tiempo");
+			  parent.marco1.location.reload();
+		     };
+		 };
+//===========================================
+//Funcion que carga el xml bandera y devuelve
+//true o false en el momento de verificar 
+//el contenido de la bandera.		 
+function cargadorXml(file)
+	     {//Recarga de nuevo el documento actual.
+		  //=============================
+		  cont_flg = xmlFlg3.childNodes[0].getAttribute('value');
+		  if (cont_flg2 != cont_flg)
+		     {
+			  parent.marco1.location.reload();//Recargamos la pantalla.
+		  	 };	 
+		 };
+//=========================================================
+//Cargador de xml bandera (Valor inicial)
+function xmlLoaded3(file)
+	     {//Recarga de nuevo el documento actual.
+		  //=============================
+		  cont_flg2=xmlFlg2.childNodes[0].getAttribute('value');
+		 }; 		 		 
+		 		 
+		 
+//=========================================================
+//               FUNCIONAMIENTO DEL PROGRAMA
+//=========================================================		 
+//Tomamos el valor de la hora en el momento de iniciar el 
+//programa.
+var hora_inicio=new Date();
+var ctrl_tiempo_ini=hora_inicio.getHours();
+//=========================================================
+//Cargamos el valor inicial de la bandera
+var xmlFlg2 = document.implementation.createDocument("", "", null);
+	xmlFlg2.onload = xmlLoaded3;
+    xmlFlg2.load("video.xml");
+//	delete xmlFlg2;
+//=========================================================
+//Cargamos el documento XML de la programacion
+    xmlDoc = document.implementation.createDocument("", "", null);
+	xmlDoc.onload = xmlLoaded;
+    xmlDoc.load("v_1234567.xml");
+//=========================================================
+//Funciona la aplicacion por completo
+//Entra en el control de bandera y de tiempo.
+
+		  
+prueba12=setInterval("ctrl_flag()",120000);
+prueba13=setInterval("ctrl_time()",120000);
+
+ 
+	
+
+//=========================================================
+
+
+</script>
+<title>controlador_frame_video</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+</body>
+</html>

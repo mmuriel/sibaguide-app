@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style>
+.img_rounded_box {
+	
+	-moz-border-radius: 5px;
+
+}
+
+</style>
+</head>
+
+<body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="315" height="180" border="0" cellpadding="0" cellspacing="0" class="img_rounded_box">
+  <tr>
+    <td align="left" valign="bottom"><img id="imagen" name="imagen" src="base.gif" width="315" height="180"></td>
+  </tr>
+</table>
+<script language="JavaScript1.3">
+var ctrl_indices2=0
+function xmlLoaded()
+	     {var cant_ele1=xmlDoc.firstChild.childNodes.length;	 
+		  cant_ele1--;
+		  var lista_indices= new Array();
+		  for (i=0;i<=cant_ele1;i++)
+		      {if (xmlDoc.firstChild.childNodes[i].nodeType==3)
+		   	      {lista_indices.push(i);
+		   		  };
+		   	  };
+		  var elemen_list_indices=lista_indices.length;
+		  elemen_list_indices--;	  
+		  for (i=0;i<=elemen_list_indices;i++)
+		      {valor_prueba=xmlDoc.firstChild.removeChild(xmlDoc.firstChild.childNodes[i]);
+	          };
+	      var hora_now = new Date();
+          var hora_1= hora_now.getHours();
+          cont_xml=xmlDoc.firstChild.childNodes[hora_1].getAttribute('value');
+		  arr_element=cont_xml.split(",");
+		  cp_indice=hora_1;
+		  if (arr_element.length ==1)
+		     {if (arr_element[0] == 'idem')
+			     {while (cont_xml=='idem')
+				        {if (cp_indice != 0)
+						    {cp_indice--;
+						     cont_xml=xmlDoc.firstChild.childNodes[cp_indice].getAttribute('value');
+						    }
+						 else
+						    {cont_xml='base.gif';
+							};	 
+						};
+			      arr_element=cont_xml.split(","); 	
+				 };
+			 };
+		  vl_indice_ini=0;
+		  programa_1=setInterval("programa(arr_element)",10000);
+		 };
+		 
+		 
+function ctrl_flag()
+{
+	xmlFlg3=document.implementation.createDocument("", "", null);
+	xmlFlg3.onload=cargadorXml;
+	xmlFlg3.load("graficos.xml");
+};
+		 
+		 
+function ctrl_time()
+         {var ctrl_tiempo=new Date()
+		  ctrl_tiempo2= ctrl_tiempo.getHours();
+		  if (ctrl_tiempo2 != ctrl_tiempo_ini)
+		     {
+				 //parent.marco3.location.reload();
+				 location.reload(true);
+		     };
+		 };
+
+
+function cargadorXml(file)
+{
+	cont_flg = xmlFlg3.childNodes[0].getAttribute('value');
+	//alert (cont_flg2 + " - "+ cont_flg2);
+	prueba100=cont_flg;
+	if (cont_flg2 != cont_flg)
+	{
+			  	//parent.marco3.location.reload();
+		location.reload(true);
+	};	 
+};
+		 
+function xmlLoaded3(file)
+{
+	//alert (xmlFlg2.childNodes[0].getAttribute('value'));
+	cont_flg2=xmlFlg2.childNodes[0].getAttribute('value');
+};
+ 
+function programa(valor_in)
+         {ctrl_indices=valor_in.length;
+		  ctrl_indices--;
+		  if (ctrl_indices2==ctrl_indices)
+		     {ctrl_indices2=0;
+			 }
+		  else
+		     {ctrl_indices2++;
+			 };
+		   ruta_img="graficos/"+valor_in[ctrl_indices2];
+
+		   val=document.images["imagen"].setAttribute('src',ruta_img);
+		 }		
+		 
+		 
+		  		 
+var hora_inicio=new Date();
+var ctrl_tiempo_ini=hora_inicio.getHours();
+
+
+xmlFlg2 = document.implementation.createDocument("", "", null);
+xmlFlg2.onload = xmlLoaded3;
+xmlFlg2.load("graficos.xml");
+	
+xmlDoc = document.implementation.createDocument("", "", null);
+xmlDoc.onload = xmlLoaded;
+xmlDoc.load("g_COL100.xml");
+
+
+ctrl_1=setInterval("ctrl_flag()",12000);
+ctrl_2=setInterval("ctrl_time()",12000); 
+</script>
+</body>
+</html>

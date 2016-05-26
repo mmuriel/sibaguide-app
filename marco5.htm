@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<script language="JavaScript1.3">
+function ctrl_flag()
+         {xmlFlg3=document.implementation.createDocument("", "", null);
+	      xmlFlg3.onload=cargadorXml;
+          xmlFlg3.load("scroll.xml");
+		 };
+function ctrl_time()
+         {var ctrl_tiempo=new Date()
+		  ctrl_tiempo2= ctrl_tiempo.getHours();
+		  if (ctrl_tiempo2 != ctrl_tiempo_ini)
+		     {//parent.marco5.location.reload();
+			 location.reload(true);
+		     };
+		 };
+function cargadorXml(file)
+	     {cont_flg = xmlFlg3.childNodes[0].getAttribute('value');
+		  if (cont_flg2 != cont_flg)
+		     {
+			  //parent.marco5.location.reload();
+			  location.reload(true);
+		  	 };	 
+		 };
+function xmlLoaded3(file)
+	     {cont_flg2=xmlFlg2.childNodes[0].getAttribute('value');
+		 }; 
+//Inicializamos el programa.
+//==========================================================		 		 		 
+ hora_inicio=new Date();
+ ctrl_tiempo_ini=hora_inicio.getHours();
+ xmlFlg2 = document.implementation.createDocument("", "", null);
+ xmlFlg2.onload = xmlLoaded3;
+ xmlFlg2.load("scroll.xml");
+
+
+		  
+prueba12=setInterval("ctrl_flag()",12000);
+prueba13=setInterval("ctrl_time()",12000);
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+</script>
+<style>
+body
+{
+	background-color: #214987;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#214987" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<center>
+  <font color="#B1D6CA" size="+4" face="Verdana, Arial, Helvetica, sans-serif"><b><b>
+</b></b></font>
+  <table width="625" height="28"  border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td align="center" valign="middle">
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="625" height="23" align="absmiddle">
+          <param name="movie" value="scroll.swf">
+          <param name="quality" value="high">
+          <embed src="scroll.swf" width="625" height="22" align="absmiddle" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+      </object></td>
+    </tr>
+  </table>
+</center>
+</body>
+</html>
