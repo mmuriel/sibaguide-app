@@ -12,8 +12,7 @@
 .scroll_box_marqueee{
 
 	text-transform: uppercase;
-	border: 1px solid #221199;
-	background-color: #aa1100;
+	background-color: #fff;
 	width: auto;
 	overflow: hidden;
 	position: absolute;

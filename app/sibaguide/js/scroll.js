@@ -116,7 +116,7 @@ var scroll = (function($,sgConf){
 
 	var _setContainerWidthBlock = function(){
 
-		widthContainerBox = parseFloat(txtToDisplay.length * 0.65);
+		widthContainerBox = parseFloat(txtToDisplay.length * 0.85);
 		if (txtToDisplay.length < 32){
 			widthContainerBox = sgConf.scroll.minWidthBox;
 		}
