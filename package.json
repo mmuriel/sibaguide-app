@@ -1,0 +1,32 @@
+{
+  "name": "sibaguide-app",
+  "version": "1.0.0",
+  "description": "App de despliegue al usuario final del productos SIBAGUIDE",
+  "main": "aplicacion.htm",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmuriel/sibaguide-app.git"
+  },
+  "keywords": [
+    "sibaguide",
+    "siba"
+  ],
+  "author": "Mauricio Muriel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmuriel/sibaguide-app/issues"
+  },
+  "homepage": "https://github.com/mmuriel/sibaguide-app#readme",
+  "devDependencies": {
+    "browser-sync": "^2.14.2",
+    "browserify": "^13.1.0",
+    "gulp": "^3.9.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}

@@ -1,0 +1,22 @@
+#main_box #scroll_box {
+	
+	overflow: hidden;
+	font-size: 20px;
+	font-family: "Arial";
+	font-weight: bold;
+	padding-top: 3px;
+}
+
+
+
+.scroll_box_marqueee{
+
+	text-transform: uppercase;
+	border: 1px solid #221199;
+	background-color: #aa1100;
+	width: auto;
+	overflow: hidden;
+	position: absolute;
+	left: 640px;
+}
+
