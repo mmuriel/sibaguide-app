@@ -88,11 +88,10 @@ iframe {
 
 #main_box #video_box {
 	height: 240px;
-	width: 633px;
+	width: 320px;
 	position: absolute;
 	left: 2px;
 	top: 22px;
-	background-color: #000;
 }
 
 #main_box #img_box {
