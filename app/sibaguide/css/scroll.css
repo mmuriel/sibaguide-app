@@ -5,6 +5,7 @@
 	font-family: "Arial";
 	font-weight: bold;
 	padding-top: 3px;
+	color: #fff;
 }
 
 
@@ -12,7 +13,7 @@
 .scroll_box_marqueee{
 
 	text-transform: uppercase;
-	background-color: #fff;
+	background-color: #000;
 	width: auto;
 	overflow: hidden;
 	position: absolute;

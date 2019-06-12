@@ -4,6 +4,7 @@
 body {
 	margin: 0px;
 	padding: 0px;
+	background-color: #000;
 
 }
 
@@ -33,7 +34,7 @@ iframe {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 17px;
 	font-weight: bold;
-	color: black;
+	color: #fff;
 	text-align: center;
 	float: left;
 	width: 115px;
@@ -43,12 +44,13 @@ iframe {
 
 #main_box #container1 {
 	font-family: Verdana, Geneva, sans-serif;
-	color: #FFF;
+	color: #000;
 	height: 22px;
 	width: 631px;
 	position: absolute;
 	left: 1px;
 	top: 0px;
+	background-color: #182983;
 }
 #main_box #container1 #date_box {
 	float: left;
@@ -56,14 +58,14 @@ iframe {
 	position: relative;
 	margin-top: 0px;
 	margin-left: 20px;
-	color: black;
+	color: #fff;
 }
 #main_box #container1 #clock_box {
 	float: right;
 	width: 230px;
 	position: relative;
 	margin-top: 0px;
-	color: black;
+	color: #fff;
 }
 
 
@@ -79,17 +81,18 @@ iframe {
 	float: left;
 	height: 480px;
 	width: 637px;
-	background-color: #fff;
-	background-image: url("../skin/background_main.png");
+	background-color: #182983;
+	/* background-image: url("../skin/background_main.png"); */
 	background-repeat: repeat-x;
 }
 
 #main_box #video_box {
 	height: 240px;
-	width: 320px;
+	width: 633px;
 	position: absolute;
 	left: 2px;
 	top: 22px;
+	background-color: #000;
 }
 
 #main_box #img_box {
@@ -141,7 +144,7 @@ iframe {
     width: 635px;
 }
 #main_box #scroll_box {
-	background-color: #FFF;
+	background-color: #000;
 	height: 31px;
 	width: 635px;
 	position: absolute;
