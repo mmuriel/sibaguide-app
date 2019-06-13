@@ -45,31 +45,46 @@ iframe {
 #main_box #container1 {
 	font-family: Verdana, Geneva, sans-serif;
 	color: #000;
-	height: 22px;
-	width: 631px;
-	position: absolute;
-	left: 1px;
-	top: 0px;
 	background-color: #182983;
+
+
+	height: 80px;
+	width: 478px;
+	position: absolute;
+	left: 802px;
+	top: 252px;
 }
 #main_box #container1 #date_box {
-	float: left;
-	width: 380px;
+	width: 468px;
+	height: 40px;
 	position: relative;
 	margin-top: 0px;
-	margin-left: 20px;
+	margin-left: 10px;
 	color: #fff;
 }
 #main_box #container1 #clock_box {
-	float: right;
-	width: 230px;
+	width: 468px;
+	height: 40px;
 	position: relative;
 	margin-top: 0px;
+	margin-left: 10px;
 	color: #fff;
 }
 
 
 
+#main_box #weather_box{
+
+	color: #000;
+	background-color: #fff;
+
+
+	height: 120px;
+	width: 478px;
+	position: absolute;
+	left: 802px;
+	top: 332px;
+}
 
 /*
 
@@ -79,27 +94,27 @@ iframe {
 
 #main_box {
 	float: left;
-	height: 480px;
-	width: 637px;
+	height: 720px;
+	width: 1280px;
 	background-color: #182983;
 	/* background-image: url("../skin/background_main.png"); */
 	background-repeat: repeat-x;
 }
 
 #main_box #video_box {
-	height: 240px;
-	width: 320px;
+	height: 450px;
+	width: 800px;
 	position: absolute;
 	left: 2px;
-	top: 22px;
+	top: 2px;
 }
 
 #main_box #img_box {
-	height: 240px;
-	width: 315px;
+	height: 250px;
+	width: 480px;
 	position: relative;
-	left: 322px;
-	top: 22px;
+	left: 802px;
+	top: 2px;
 	
 }
 
