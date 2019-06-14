@@ -32,12 +32,12 @@ iframe {
 }
 .box_complemento_grilla {
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 17px;
+	font-size: 25px;
 	font-weight: bold;
 	color: #fff;
 	text-align: center;
 	float: left;
-	width: 115px;
+	width: 233px;
 }
 
 
@@ -45,7 +45,7 @@ iframe {
 #main_box #container1 {
 	font-family: Verdana, Geneva, sans-serif;
 	color: #000;
-	background-color: #182983;
+	background-color: #fff;
 
 
 	height: 80px;
@@ -55,20 +55,20 @@ iframe {
 	top: 252px;
 }
 #main_box #container1 #date_box {
-	width: 468px;
+	width: 478px;
 	height: 40px;
 	position: relative;
-	margin-top: 0px;
-	margin-left: 10px;
-	color: #fff;
+	font-size: 26px;
+	color: #000;
+	text-align: center;
 }
 #main_box #container1 #clock_box {
-	width: 468px;
+	width: 478px;
 	height: 40px;
 	position: relative;
-	margin-top: 0px;
-	margin-left: 10px;
-	color: #fff;
+	font-size: 26px;
+	color: #000;
+	text-align: center;
 }
 
 
@@ -80,10 +80,11 @@ iframe {
 
 
 	height: 120px;
-	width: 478px;
+	width: 438px;
 	position: absolute;
 	left: 802px;
 	top: 332px;
+	padding-left: 40px;
 }
 
 /*
@@ -122,11 +123,14 @@ iframe {
 
 
 #main_box #grid_box_compliment {
-	height: 30px;
-	width: 635px;
+
+
+	height: 40px;
+	width: 1280px;
 	position: absolute;
 	left: 1px;
-	top: 262px;
+	top: 452px;
+
 	background-image: url(../skin/fondo_horas.png);
 	background-repeat: no-repeat;
 	background-position: left top;
@@ -141,9 +145,9 @@ iframe {
 	top: 1px;
 }
 #main_box #grid_box_compliment #box_complemento_horas {
-	width: 460px;
+	width: 935px;
 	position: absolute;
-	left: 175px;
+	left: 345px;
 	top: 0px;
 	margin-top: 3px;
 }
@@ -151,19 +155,19 @@ iframe {
 
 #main_box #grid_box {
     background-color: #000066;
-    height: 158px;
-    left: 1px;
-    position: absolute;
-    top: 292px;
-    width: 635px;
+	height: 190px;
+	left: 1px;
+	position: absolute;
+	top: 490px;
+	width: 1280px;
 }
 #main_box #scroll_box {
 	background-color: #000;
-	height: 31px;
-	width: 635px;
+	height: 40px;
+	width: 1280px;
 	position: absolute;
 	left: 1px;
-	top: 448px;
+	top: 680px;
 }
 
 
