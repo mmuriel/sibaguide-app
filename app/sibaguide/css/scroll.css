@@ -1,7 +1,7 @@
 #main_box #scroll_box {
 	
 	overflow: hidden;
-	font-size: 20px;
+	font-size: 25px;
 	font-family: "Arial";
 	font-weight: bold;
 	padding-top: 3px;
@@ -17,6 +17,6 @@
 	width: auto;
 	overflow: hidden;
 	position: absolute;
-	left: 640px;
+	left: 1280px;
 }
 
