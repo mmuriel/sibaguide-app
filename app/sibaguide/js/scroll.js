@@ -85,7 +85,7 @@ var scroll = (function($,sgConf){
 		$.keyframe.define({
 		    name: 'move',
 		    from: {
-		        'left': '640px' //Note that 'transform' will be autoprefixed for you
+		        'left': '1280px' //Note that 'transform' will be autoprefixed for you
 		    },
 		    to: {
 		        'left': ""+destBox+"em" //Note that 'transform' will be autoprefixed for you
