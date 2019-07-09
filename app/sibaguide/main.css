@@ -6,6 +6,7 @@ body {
 	padding: 0px;
 	background-color: #000;
 
+
 }
 
 iframe {
@@ -49,10 +50,10 @@ iframe {
 
 
 	height: 80px;
-	width: 478px;
+	width: 510px;
 	position: absolute;
-	left: 802px;
-	top: 252px;
+	left: 760px;
+	top: 232px;
 }
 #main_box #container1 #date_box {
 	width: 478px;
@@ -80,11 +81,11 @@ iframe {
 
 
 	height: 120px;
-	width: 438px;
+	width: 450px;
 	position: absolute;
-	left: 802px;
-	top: 332px;
-	padding-left: 40px;
+	left: 760px;
+	top: 312px;
+	padding-left: 60px;
 }
 
 /*
@@ -99,23 +100,24 @@ iframe {
 	width: 1280px;
 	background-color: #182983;
 	/* background-image: url("../skin/background_main.png"); */
+	background-image: url("../skin/full-background.png");
 	background-repeat: repeat-x;
 }
 
 #main_box #video_box {
-	height: 450px;
-	width: 800px;
+	height: 422px;
+	width: 750px;
 	position: absolute;
-	left: 2px;
-	top: 2px;
+	left: 10px;
+	top: 10px;
 }
 
 #main_box #img_box {
-	height: 250px;
-	width: 480px;
+	height: 222px;
+	width: 510px;
 	position: relative;
-	left: 802px;
-	top: 2px;
+	left: 760px;
+	top: 10px;
 	
 }
 
@@ -125,11 +127,11 @@ iframe {
 #main_box #grid_box_compliment {
 
 
-	height: 40px;
-	width: 1280px;
+	height: 35px;
+	width: 1260px;
 	position: absolute;
-	left: 1px;
-	top: 452px;
+	left: 10px;
+	top: 432px;
 
 	background-image: url(../skin/fondo_horas.png);
 	background-repeat: no-repeat;
@@ -155,19 +157,19 @@ iframe {
 
 #main_box #grid_box {
     background-color: #000066;
-	height: 190px;
-	left: 1px;
+	height: 205px;
+	left: 10px;
 	position: absolute;
-	top: 490px;
-	width: 1280px;
+	top: 467px;
+	width: 1260px;
 }
 #main_box #scroll_box {
 	background-color: #000;
 	height: 40px;
-	width: 1280px;
+	width: 1260px;
 	position: absolute;
-	left: 1px;
-	top: 680px;
+	left: 10px;
+	top: 672px;
 }
 
 
