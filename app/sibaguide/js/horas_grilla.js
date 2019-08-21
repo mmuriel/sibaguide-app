@@ -10,8 +10,6 @@ function horas_grilla_cambia_valores()
           if (hora_real >= 13){
             hora_real = hora_real - 12;
           }
-
-          console.log(hora_real);
           if (mins_real < 15)
              {horas_grilla_valor1=hora_real+":00";
               horas_grilla_valor2=hora_real+":30";

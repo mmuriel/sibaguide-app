@@ -31,8 +31,8 @@ class ListaCanales extends React.Component{
 		let divGuiaContairer = document.getElementById("grid_box");
 		let cssHtmlTag = document.createElement("style");
 		let qtyChannels = this.props.dataGuia.childNodes[0].childNodes.length;
-		console.log("Cantidad de canales disponibles en ListaCanales.startAnimation()");
-		console.log(qtyChannels);
+		//console.log("Cantidad de canales disponibles en ListaCanales.startAnimation()");
+		//console.log(qtyChannels);
 		let cssRules = document.createTextNode("@keyframes guia{from {top: 205px} to{top: -"+( parseInt(64 * qtyChannels))+"px}} #grid_box ul.canales-list{ animation-name: guia; animation-timing-function: linear; animation-iteration-count: infinite; animation-play-state: running; animation-duration: "+(qtyChannels * 2)+"s;}");
 		cssHtmlTag.appendChild(cssRules);
 		divGuiaContairer.appendChild(cssHtmlTag);

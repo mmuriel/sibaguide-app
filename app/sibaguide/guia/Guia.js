@@ -35,7 +35,7 @@ class Guia extends React.Component{
 				let newState = {
 					dataGuia: xmlData
 				}
-				console.log("Cargando el contenido de la guia...");
+				//console.log("Cargando el contenido de la guia...");
 				//console.log(newState);
 				return newState;
 			});
