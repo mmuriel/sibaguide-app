@@ -42,7 +42,7 @@ gulp.task('watch',function(){
 	});
 
 
-	gulp.watch(['app/*.html','app/*.htm','app/sibaguide/css/*.css','app/sibaguide/js/*.js','app/sibaguide/main.css'],['reload']);
+	gulp.watch(['app/*.html','app/*.htm','app/sibaguide/css/*.css','app/sibaguide/js/*.js','app/sibaguide/main.css','app/sibaguide/guia/*'],['reload']);
 	//gulp.watch('app/js/main.js',['js']);
 	//gulp.watch('app/sass/**/*.scss',['styles']);
 	//gulp.watch('app/js/bundle.js',['reload']);

@@ -1,0 +1,147 @@
+#grid_box {
+
+	overflow: hidden;
+}
+
+
+#grid_box ul.canales-list{
+
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	position: relative;
+	display: block;
+}
+
+
+li.canal{
+	width: 1260px;
+	height: 64px;
+	position: relative;
+	line-height: 1.6em;
+
+	/* flex definition */
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+}
+
+
+.canal .canal__info{
+
+	background-color: #0c098e;
+	color: #fff;
+	width: 348px;
+	height: 62px;
+	font-family: "Verdana", "Geneva", "sans-serif", "Arial";
+	font-size: 24px;
+	border-bottom: 2px solid #fff;
+	text-transform: uppercase;
+	overflow: hidden;
+	/* flex defintions */
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+
+}
+
+
+.canal .canal__info .canal__info__frecuencia{
+
+	background-color: #0c098e;
+	color: #fff;
+	width: 62px;
+	padding: 0px 3px 0px 3px;
+	text-align: center;
+	font-size: 23px;
+	/* flex defintions */
+
+}
+
+
+.canal .canal__info .canal__info__nombre{
+
+	background-color: #0c098e;
+	color: #fff;
+	width: 261px;
+	padding: 0px 5px 0px 10px;
+	font-size: 24px;
+	overflow: hidden;
+	/* flex defintions */
+
+}
+
+.canal .canal__eventos{
+	background-color: #bef6f8;
+	color: #000;
+	width:912px;
+	height: 62px;
+	border-bottom: 2px solid #000;
+	position: relative;
+	display: block;
+	overflow: hidden;
+	/* flex definitions */
+}
+
+
+ul.canal__eventos__list{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	position: relative;
+	display: block;
+}
+
+li.evento{
+
+	height: 62px;
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	color: #000;
+	
+
+}
+
+li.evento--active{
+
+	background-color: #d4fdff; 
+
+}
+
+.evento__nombre{
+	padding: 5px 5px 5px 3px;
+	display: block;
+	position: relative;
+	font-family: "Verdana", "Geneva", "sans-serif", "Arial";
+	font-size: 26px;
+	border-left: solid 2px #000;
+	min-height: 62px;
+}
+
+.evento__backArrow{
+	
+	display: none;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+}
+
+.evento__nextArrow{
+
+	display: none;
+	position: absolute;
+	top: 3px;
+	right: 3px;
+}
+
+.show{
+	display: block !important;
+}
+
+
+
+

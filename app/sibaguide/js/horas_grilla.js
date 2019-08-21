@@ -11,21 +11,33 @@ function horas_grilla_cambia_valores()
             hora_real = hora_real - 12;
           }
 
-
-          if (mins_real < 30)
+          console.log(hora_real);
+          if (mins_real < 15)
              {horas_grilla_valor1=hora_real+":00";
               horas_grilla_valor2=hora_real+":30";
               horas_grilla_valor3=(hora_real+1)+":00";
               horas_grilla_valor4=(hora_real+1)+":30";
-             }
-          else
-             {horas_grilla_valor1=hora_real+":30";
-              horas_grilla_valor2=(hora_real+1)+":00";
+             }   
+          else if (mins_real >= 15 && mins_real < 30){
+              horas_grilla_valor1=hora_real+":15";
+              horas_grilla_valor2=hora_real+":45";
+              horas_grilla_valor3=(hora_real+1)+":15";
+              horas_grilla_valor4=(hora_real+1)+":45";
+          } 
+          else if (mins_real >= 30 && mins_real < 45){
+              horas_grilla_valor1=hora_real+":30";
+              horas_grilla_valor2=(hora_real +1)+":00";
               horas_grilla_valor3=(hora_real+1)+":30";
               horas_grilla_valor4=(hora_real+2)+":00";
-             }; 
+          } 
+          else if (mins_real >= 45 ){
+              horas_grilla_valor1=hora_real+":45";
+              horas_grilla_valor2=(hora_real+1)+":15";
+              horas_grilla_valor3=(hora_real+1)+":45";
+              horas_grilla_valor4=(hora_real+2)+":15";
+          } 
 
-
+          /*
 		  if ((hora_real == 10) && (mins_real >= 30))
 		     {horas_grilla_valor4="12:00";
              };
@@ -37,7 +49,8 @@ function horas_grilla_cambia_valores()
 		     {horas_grilla_valor2="12:00";
 			  horas_grilla_valor3="12:30";
 			  horas_grilla_valor4="1:00";
-			 };	 	 
+			 };	 	
+       */ 
           var elemento=document.getElementById("tiempo1");
           elemento.childNodes[0].nodeValue=horas_grilla_valor1;
 		  

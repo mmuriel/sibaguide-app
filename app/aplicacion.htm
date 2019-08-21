@@ -15,6 +15,16 @@ overflow-y:hidden;
 
 </style>
 
+<!-- Load Conf File -->
+<script src="sibaguide/js/conf.js" ></script>
+
+
+<script type="text/javascript" src="/jspm_packages/system.js"></script>
+<!-- Required for jspm dependencies -->
+<script src="config.js"></script>
+
+
+
 </head>
 
 <body>
@@ -61,11 +71,6 @@ overflow-y:hidden;
         </div>
     </div> 
     <div id="grid_box">
-    
-        
-        <iframe src="marco4.htm" name="marco4" style=" width:1260px; height: 205px; border:none;"></iframe>
-        
-        
     </div> 
     
        
@@ -80,17 +85,23 @@ overflow-y:hidden;
 
 
 
-<!-- Load Conf File -->
-<script src="sibaguide/js/conf.js" ></script>
 <!-- Vendors dependencies -->
 <script type="text/javascript" src="sibaguide/js/vendors/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="sibaguide/js/vendors/jquery.keyframes.min.js"></script>
 
+
+
+
 <!-- App dependencies -->
+
 <script src="sibaguide/js/date_writer.js" ></script>
 <script src="sibaguide/js/clock.js" ></script>
 <script src="sibaguide/js/horas_grilla.js" ></script>
 <script src="sibaguide/js/scroll.js" ></script>
+
+<script>
+    System.import('./startup.js');
+</script>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 var scroll = (function($,sgConf){
 
 	var xmlData, xmlFlg, flgWatcher, timeWatcher, txtToDisplay = '', timeFlgValue = '', widthContainerBox = 0;
-	console.log($.keyframe);
+	//console.log($.keyframe);
 
 
 	var _loadXmlData = function(){
@@ -17,7 +17,7 @@ var scroll = (function($,sgConf){
 			txtToDisplay = _setMessageToDisplay(tagInd);
 			_setContainerWidthBlock();
 			_displayMessages();
-			console.log(txtToDisplay.length);
+			//console.log(txtToDisplay.length);
 			_startAnimation();
 			
 
@@ -38,7 +38,7 @@ var scroll = (function($,sgConf){
 
 			}
 			else {
-				console.log("No debe cargar contenido del flag");
+				//console.log("No debe cargar contenido del flag");
 			}
 		}
 		xmlFlg.load('scroll.xml');
