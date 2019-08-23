@@ -12,22 +12,28 @@ class GuiaContainer extends React.Component{
 		this.loadFlags = this.loadFlags.bind(this);
 		this.checkFlags = this.checkFlags.bind(this);
 		this.timeChangeAgent = this.timeChangeAgent.bind(this);
-		
+		this.loadGuiaData = this.loadGuiaData.bind(this);
+		this.changeState = this.changeState.bind(this);
 		//Define los valores que se pueden calcular de manera directa
 		let dateNow = new Date();
+		//dateNow.setTime(dateNow.getTime() + (props.sgconf.guia.timezone * 60 * 60 * 1000));
 		let startTimeBlock = this.getLast15MinutesBlock(dateNow);
 
 		//Definiendo el estado inicial
 		this.state = {
 			localFlag: '',
 			gralFlag: '',
-			startTime: startTimeBlock
+			startTime: startTimeBlock,
+			dataGuia:{}
 		}
 	}
 	componentDidMount(){
-		console.log("Esta es la ejecucion de GuiaContainer.componentDidMount()");
+		console.log("GuiaContainer.componentDidMount()");
 		this.flagsTimer = setInterval(()=>{this.checkFlags();},5000);;
 		this.timeAgentTimer = setInterval(()=>{this.timeChangeAgent();},1000);
+	}
+	componentDidUpdate(){
+		console.log('GuiaContainer.componentDidUpdate()');
 	}
 	componenWillUnmount(){
 		clearInterval(this.flagsTimer);
@@ -37,42 +43,84 @@ class GuiaContainer extends React.Component{
 		Custom functions
 	*/
 
+
+	changeState(newStateValues){
+
+
+		console.log("Antiguo State");
+		console.log(this.state);
+
+		console.log("El objeto de parametros enviado GuiaContainer.changeSate()");
+		console.log(newStateValues);
+		/* Cambia el estado con cambio del tiempo */
+		let fieldsToUpdate = {
+			localFlag: this.state.localFlag,
+			gralFlag: this.state.gralFlag,
+			startTime: this.state.startTime,
+			dataGuia: this.state.dataGuia
+		}
+
+		if (typeof newStateValues.startTime != 'undefined'){
+			fieldsToUpdate.startTime = newStateValues.startTime;
+		}
+
+		if (typeof newStateValues.gralFlag != 'undefined'){
+			fieldsToUpdate.gralFlag = newStateValues.gralFlag;
+		}
+
+		if (typeof newStateValues.localFlag != 'undefined'){
+			fieldsToUpdate.localFlag = newStateValues.localFlag;
+		}
+
+		if (typeof newStateValues.dataGuia != 'undefined'){
+			fieldsToUpdate.dataGuia = newStateValues.dataGuia;
+		}
+
+		console.log("Nuevo State");
+		console.log(fieldsToUpdate);
+
+		console.log("================================\n");
+		this.setState(prevState => {
+			return fieldsToUpdate;
+		});
+
+	}
+
 	/*
 		Este agente verifica si se ha cambiado del bloque de 15 minutos 
 		para modificar (recargar) la parrilla
 	*/
+
 	timeChangeAgent(){
-		let actualDate = new Date();
-		actualDate = this.getLast15MinutesBlock(actualDate);
-		if (actualDate.valueOf() != this.state.startTime.valueOf()){
-			this.setState(prevState => {
-					//console.log("Estado previo...");
-					//console.log(prevState);
-					let newState = {... prevState};
-					newState.startTime = actualDate;
-					//console.log("Estado nuevo...");
-					//console.log(newState);
-					return newState;
-				});
-		}
+		let self = this;
+		setTimeout(()=>{
+			let timeChangeDate = new Date();
+			//timeChangeDate.setTime(timeChangeDate.getTime() + (self.props.sgconf.guia.timezone * 60 * 60 * 1000));
+			//timeChangeDate.setTime(timeChangeDate.getTime() + (self.props.sgconf.guia.timezone * 60 * 60 * 1000));
+			timeChangeDate = self.getLast15MinutesBlock(timeChangeDate);
+			if (timeChangeDate.valueOf() != self.state.startTime.valueOf()){
+
+				console.log("Son diferentes los getDay()?: "+timeChangeDate.getDay()+" - "+self.state.startTime.getDay()+"");
+				if (timeChangeDate.getDay() != self.state.startTime.getDay())
+					
+					self.loadGuiaData({startTime: timeChangeDate});
+				else{
+					console.log("GuiaContainer.timeChangeAgent() Llamando desde...");
+					self.changeState({startTime: timeChangeDate});
+				}
+
+			}
+		},1000);
 	}
-
-
 
 	//Verifica si las banderas general y/o local han sido modificadas
 	checkFlags(){
 		this.loadFlags().then((rawFlagsVals)=>{
-			if (rawFlagsVals.localFlagChecker != this.state.localFlag || rawFlagsVals.gralFlagChecker != this.state.gralFlag )
-				this.setState(prevState => {
-					//console.log("Estado previo...");
-					//console.log(prevState);
-					let newState = {... prevState};
-					newState.localFlag = rawFlagsVals.localFlagChecker;
-					newState.gralFlag = rawFlagsVals.gralFlagChecker;
-					//console.log("Estado nuevo...");
-					//console.log(newState);
-					return newState;
-				});
+			if (rawFlagsVals.localFlagChecker != this.state.localFlag || rawFlagsVals.gralFlagChecker != this.state.gralFlag ){
+
+				this.loadGuiaData({localFlag:rawFlagsVals.localFlagChecker,gralFlag:rawFlagsVals.gralFlagChecker});
+				
+			}
 		});
 	}
 
@@ -119,8 +167,40 @@ class GuiaContainer extends React.Component{
 			return new Date(dateObj.getFullYear(),dateObj.getMonth(),dateObj.getDate(),dateObj.getHours(),45,0,0);
 		}
 	}
+
+
+
+	loadGuiaData(paramsToChangeState){
+		let self = this;
+		let dayOfWeek = this.state.startTime.getDay();
+		if (typeof paramsToChangeState.startTime != 'undefined'){
+			dayOfWeek = paramsToChangeState.startTime.getDay();
+		}
+
+		if (dayOfWeek == 0){//Ajuste el domingo a valor = 7, por que el objeto JS date define el domingo como = 0
+			dayOfWeek = 7;
+		}
+		GuiaHelper.dataGuiaLoader("h_"+(parseInt(parseInt(dayOfWeek)) )+"_"+this.props.sgconf.id+".xml").then((xmlData)=>{
+			//this.dataGuiaXml = xmlData;
+			paramsToChangeState.dataGuia = xmlData;
+			console.log("GuiaContainer.loadGuiaData() Llamando desde...");
+			this.changeState(paramsToChangeState);
+			console.log(xmlData);
+		}).catch(error=>{
+			console.log("Ocurrio un error cargando el contenido de la guia... Guia.loadGuiaData()");
+			console.log(error);
+		});
+	}
+
+
 	render(){
-		return (<Guia sgconf={this.props.sgconf} startTime={this.state.startTime}  />);
+		console.log("GuiaContainer.render()");
+		if (typeof this.state.dataGuia.URL != 'undefined'){
+			return (<Guia sgconf={this.props.sgconf} startTime={this.state.startTime} dataGuia={this.state.dataGuia} />);
+		}
+		else{
+			return (<h1></h1>);
+		}
 	}
 }
 

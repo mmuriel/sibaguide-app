@@ -1,6 +1,8 @@
 #grid_box {
 
 	overflow: hidden;
+	color: #fff;
+	background-image: url("../../skin/background.jpg");
 }
 
 

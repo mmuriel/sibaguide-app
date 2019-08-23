@@ -21673,92 +21673,6 @@ System.registerDynamic("npm:react-dom@16.9.0.js", ["npm:react-dom@16.9.0/index.j
       GLOBAL = global;
   module.exports = $__require("npm:react-dom@16.9.0/index.js");
 });
-System.registerDynamic('npm:core-js@1.2.7/library/modules/$.to-object.js', ['npm:core-js@1.2.7/library/modules/$.defined.js'], true, function ($__require, exports, module) {
-  var global = this || self,
-      GLOBAL = global;
-  /* */
-  var defined = $__require('npm:core-js@1.2.7/library/modules/$.defined.js');
-  module.exports = function (it) {
-    return Object(defined(it));
-  };
-});
-System.registerDynamic('npm:core-js@1.2.7/library/modules/$.object-assign.js', ['npm:core-js@1.2.7/library/modules/$.js', 'npm:core-js@1.2.7/library/modules/$.to-object.js', 'npm:core-js@1.2.7/library/modules/$.iobject.js', 'npm:core-js@1.2.7/library/modules/$.fails.js'], true, function ($__require, exports, module) {
-  var global = this || self,
-      GLOBAL = global;
-  /* */
-  var $ = $__require('npm:core-js@1.2.7/library/modules/$.js'),
-      toObject = $__require('npm:core-js@1.2.7/library/modules/$.to-object.js'),
-      IObject = $__require('npm:core-js@1.2.7/library/modules/$.iobject.js');
-  module.exports = $__require('npm:core-js@1.2.7/library/modules/$.fails.js')(function () {
-    var a = Object.assign,
-        A = {},
-        B = {},
-        S = Symbol(),
-        K = 'abcdefghijklmnopqrst';
-    A[S] = 7;
-    K.split('').forEach(function (k) {
-      B[k] = k;
-    });
-    return a({}, A)[S] != 7 || Object.keys(a({}, B)).join('') != K;
-  }) ? function assign(target, source) {
-    var T = toObject(target),
-        $$ = arguments,
-        $$len = $$.length,
-        index = 1,
-        getKeys = $.getKeys,
-        getSymbols = $.getSymbols,
-        isEnum = $.isEnum;
-    while ($$len > index) {
-      var S = IObject($$[index++]),
-          keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S),
-          length = keys.length,
-          j = 0,
-          key;
-      while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
-    }
-    return T;
-  } : Object.assign;
-});
-System.registerDynamic('npm:core-js@1.2.7/library/modules/es6.object.assign.js', ['npm:core-js@1.2.7/library/modules/$.export.js', 'npm:core-js@1.2.7/library/modules/$.object-assign.js'], true, function ($__require, exports, module) {
-  var global = this || self,
-      GLOBAL = global;
-  /* */
-  var $export = $__require('npm:core-js@1.2.7/library/modules/$.export.js');
-  $export($export.S + $export.F, 'Object', { assign: $__require('npm:core-js@1.2.7/library/modules/$.object-assign.js') });
-});
-System.registerDynamic('npm:core-js@1.2.7/library/fn/object/assign.js', ['npm:core-js@1.2.7/library/modules/es6.object.assign.js', 'npm:core-js@1.2.7/library/modules/$.core.js'], true, function ($__require, exports, module) {
-  var global = this || self,
-      GLOBAL = global;
-  /* */
-  $__require('npm:core-js@1.2.7/library/modules/es6.object.assign.js');
-  module.exports = $__require('npm:core-js@1.2.7/library/modules/$.core.js').Object.assign;
-});
-System.registerDynamic("npm:babel-runtime@5.8.38/core-js/object/assign.js", ["npm:core-js@1.2.7/library/fn/object/assign.js"], true, function ($__require, exports, module) {
-  var global = this || self,
-      GLOBAL = global;
-  /* */
-  module.exports = { "default": $__require("npm:core-js@1.2.7/library/fn/object/assign.js"), __esModule: true };
-});
-System.registerDynamic("npm:babel-runtime@5.8.38/helpers/extends.js", ["npm:babel-runtime@5.8.38/core-js/object/assign.js"], true, function ($__require, exports, module) {
-  /* */
-  "use strict";
-
-  var global = this || self,
-      GLOBAL = global;
-  var _Object$assign = $__require("npm:babel-runtime@5.8.38/core-js/object/assign.js")["default"];
-  exports["default"] = _Object$assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-    return target;
-  };
-  exports.__esModule = true;
-});
 System.registerDynamic("npm:core-js@1.2.7/library/modules/es6.object.to-string.js", [], true, function ($__require, exports, module) {
   /* */
   "format cjs";
@@ -22817,7 +22731,7 @@ System.register("sibaguide/guia/CanalInfo.js", ["npm:babel-runtime@5.8.38/helper
 							React.createElement(
 								"div",
 								{ className: "canal__info__frecuencia" },
-								this.props.canalInfo.getAttribute('cadena')
+								parseFloat(this.props.canalInfo.getAttribute('cadena') / 100)
 							),
 							React.createElement(
 								"div",
@@ -25271,7 +25185,7 @@ System.register('sibaguide/guia/CanalEventos.js', ['npm:babel-runtime@5.8.38/hel
 					_get(Object.getPrototypeOf(CanalEventos.prototype), 'constructor', this).call(this, props);
 
 					this.getFirst15MinsBlock = this.getFirst15MinsBlock.bind(this);
-					this.serachForFirstEventName = this.serachForFirstEventName.bind(this);
+					this.searchForFirstEventName = this.searchForFirstEventName.bind(this);
 				}
 
 				_createClass(CanalEventos, [{
@@ -25283,22 +25197,28 @@ System.register('sibaguide/guia/CanalEventos.js', ['npm:babel-runtime@5.8.38/hel
 						return parseInt(hourBlocks + minBlocks);
 					}
 				}, {
-					key: 'serachForFirstEventName',
-					value: function serachForFirstEventName() {
+					key: 'searchForFirstEventName',
+					value: function searchForFirstEventName() {
 
 						var index = this.getFirst15MinsBlock();
-						while (this.props.eventos[index].getAttribute('value') == 'idem' && index > 0) {
-							index--;
+						try {
+							while (this.props.eventos[index].getAttribute('value') == 'idem' && index >= 0) {
+								index--;
+							}
+							//console.log("Valor del inidice: "+index);
+							//console.log(this.props.eventos[index].getAttribute('value'));
+							return this.props.eventos[index].getAttribute('value');
+						} catch (error) {
+							console.log(error);
+							console.log(index);
+							return "Continuación...";
 						}
-						//console.log("Valor del inidice: "+index);
-						//console.log(this.props.eventos[index].getAttribute('value'));
-						return this.props.eventos[index].getAttribute('value');
 					}
 				}, {
 					key: 'render',
 					value: function render() {
 
-						var eventName = this.serachForFirstEventName();
+						var eventName = this.searchForFirstEventName();
 						var index = this.getFirst15MinsBlock();
 						var listaEventos = [];
 						var longBox = 0;
@@ -25395,6 +25315,7 @@ System.register('sibaguide/guia/Canal.js', ['npm:babel-runtime@5.8.38/helpers/ge
 					key: 'render',
 					value: function render() {
 
+						console.log("Canal.render()");
 						//console.log(this.props.eventos);
 						var reactListKey = this.props.canalInfo.getAttribute('cadena');
 						var eventos = [];
@@ -25453,14 +25374,26 @@ System.register('sibaguide/guia/ListaCanales.js', ['npm:babel-runtime@5.8.38/hel
 					key: 'componentDidMount',
 					value: function componentDidMount() {
 
-						console.log("Esta es la ejecucion de ListaCanales.componentDidMount()");
-						//this.startListAnimation();
+						console.log("ListaCanales.componentDidMount()");
+						this.startListAnimation();
 					}
 				}, {
 					key: 'componentDidUpdate',
 					value: function componentDidUpdate() {
 						//console.log(`Ya estaba cargado el componente... ${this.props.dataGuia}`);
+						console.log('ListaCanales.componentDidUpdate()');
 						this.startListAnimation();
+					}
+				}, {
+					key: 'shouldComponentUpdate',
+					value: function shouldComponentUpdate(nextProps, nextState) {
+
+						console.log('ListadoCanales.shouldComponentdUpdate()');
+						console.log('Props actuales:');
+						console.log(this.props);
+						console.log('Props nuevos:');
+						console.log(nextProps);
+						return true;
 					}
 				}, {
 					key: 'startListAnimation',
@@ -25472,7 +25405,7 @@ System.register('sibaguide/guia/ListaCanales.js', ['npm:babel-runtime@5.8.38/hel
 						var qtyChannels = this.props.dataGuia.childNodes[0].childNodes.length;
 						//console.log("Cantidad de canales disponibles en ListaCanales.startAnimation()");
 						//console.log(qtyChannels);
-						var cssRules = document.createTextNode("@keyframes guia{from {top: 205px} to{top: -" + parseInt(64 * qtyChannels) + "px}} #grid_box ul.canales-list{ animation-name: guia; animation-timing-function: linear; animation-iteration-count: infinite; animation-play-state: running; animation-duration: " + qtyChannels * 2 + "s;}");
+						var cssRules = document.createTextNode("@keyframes guia{from {top: 205px} to{top: -" + parseInt(64 * qtyChannels) + "px}} #grid_box ul.canales-list{ animation-name: guia; animation-timing-function: linear; animation-iteration-count: infinite; animation-play-state: running; animation-duration: " + qtyChannels * this.props.sgconf.guia.secondsChannel + "s;}");
 						cssHtmlTag.appendChild(cssRules);
 						divGuiaContairer.appendChild(cssHtmlTag);
 
@@ -25482,31 +25415,33 @@ System.register('sibaguide/guia/ListaCanales.js', ['npm:babel-runtime@5.8.38/hel
 				}, {
 					key: 'render',
 					value: function render() {
+						console.log("ListaCanales.render()");
 						console.log('Se cargo la guia en la ListaCanales... ' + typeof this.props.dataGuia);
 						console.log(this.props.dataGuia);
 						if (typeof this.props.dataGuia.URL != 'undefined') {
 							var listaCanales = [];
 							for (var i = 0; i < this.props.dataGuia.childNodes[0].childNodes.length; i++) {
 								//let chnName = this.props.dataGuia.childNodes[0].childNodes[i].getAttribute('name');
-								listaCanales.push(React.createElement(Canal, {
-									key: this.props.dataGuia.childNodes[0].childNodes[i].getAttribute('cadena'),
-									canalInfo: this.props.dataGuia.childNodes[0].childNodes[i],
-									sgconf: this.props.sgconf,
-									startTime: this.props.startTime,
-									eventos: this.props.dataGuia.childNodes[0].childNodes[i].childNodes
-								}));
+								if (this.props.dataGuia.childNodes[0].childNodes[i].childNodes.length >= 86) {
+									listaCanales.push(React.createElement(Canal, {
+										key: this.props.dataGuia.childNodes[0].childNodes[i].getAttribute('cadena'),
+										canalInfo: this.props.dataGuia.childNodes[0].childNodes[i],
+										sgconf: this.props.sgconf,
+										startTime: this.props.startTime,
+										eventos: this.props.dataGuia.childNodes[0].childNodes[i].childNodes
+									}));
+								}
 							}
 							return React.createElement(
 								'ul',
 								{ className: 'canales-list' },
 								listaCanales
 							);
-							//return (<h1>Hola Mundo desde ListaCanales {this.props.sgconf.id} la bandera local inicia con {this.props.startTime.getHours()}:{this.props.startTime.getMinutes()} </h1>);
 						} else return React.createElement(
-								'h1',
-								null,
-								'SIBAGUIDE'
-							);
+							'h1',
+							null,
+							'SIBAGUIDE'
+						);
 					}
 				}]);
 
@@ -25546,51 +25481,24 @@ System.register('sibaguide/guia/Guia.js', ['npm:babel-runtime@5.8.38/helpers/get
 					_classCallCheck(this, Guia);
 
 					_get(Object.getPrototypeOf(Guia.prototype), 'constructor', this).call(this, props);
-					this.loadGuiaData = this.loadGuiaData.bind(this);
-					this.state = {
-						dataGuia: {}
-					};
 				}
 
 				_createClass(Guia, [{
 					key: 'componentDidMount',
 					value: function componentDidMount() {
-
-						console.log("Esta es la ejecucion de Guia.componentDidMount()");
-						this.loadGuiaData();
+						console.log("Guia.componentDidMount()");
 					}
 				}, {
-					key: 'loadGuiaData',
-					value: function loadGuiaData() {
-						var _this = this;
-
-						var self = this;
-						var dayOfWeek = this.props.startTime.getDay();
-						if (dayOfWeek == 0) {
-							//Ajuste el domingo a valor = 7, por que el objeto JS date define el domingo como = 0
-							dayOfWeek = 7;
-						}
-						GuiaHelper.dataGuiaLoader("h_" + parseInt(parseInt(dayOfWeek)) + "_" + this.props.sgconf.id + ".xml").then(function (xmlData) {
-							//this.dataGuiaXml = xmlData;
-							_this.setState(function (prevState) {
-
-								var newState = {
-									dataGuia: xmlData
-								};
-								//console.log("Cargando el contenido de la guia...");
-								//console.log(newState);
-								return newState;
-							});
-						})['catch'](function (error) {
-							console.log("Ocurrio un error cargando el contenido de la guia...");
-							console.log(error);
-						});
+					key: 'componentDidUpdate',
+					value: function componentDidUpdate() {
+						console.log("Guia.componentDidUpdate()");
+						//this.loadGuiaData();		
 					}
 				}, {
 					key: 'render',
 					value: function render() {
-
-						return React.createElement(ListaCanales, { sgconf: this.props.sgconf, startTime: this.props.startTime, dataGuia: this.state.dataGuia });
+						console.log("Guia.render()");
+						return React.createElement(ListaCanales, { sgconf: this.props.sgconf, startTime: this.props.startTime, dataGuia: this.props.dataGuia });
 					}
 				}]);
 
@@ -25601,8 +25509,8 @@ System.register('sibaguide/guia/Guia.js', ['npm:babel-runtime@5.8.38/helpers/get
 		}
 	};
 });
-System.register('sibaguide/guia/GuiaContainer.js', ['npm:babel-runtime@5.8.38/helpers/get.js', 'npm:babel-runtime@5.8.38/helpers/inherits.js', 'npm:babel-runtime@5.8.38/helpers/create-class.js', 'npm:babel-runtime@5.8.38/helpers/class-call-check.js', 'npm:babel-runtime@5.8.38/helpers/extends.js', 'npm:babel-runtime@5.8.38/core-js/promise.js', 'npm:react@16.9.0.js', 'sibaguide/guia/GuiaHelper.js', 'sibaguide/guia/Guia.js'], function (_export) {
-	var _get, _inherits, _createClass, _classCallCheck, _extends, _Promise, React, GuiaHelper, Guia, GuiaContainer;
+System.register('sibaguide/guia/GuiaContainer.js', ['npm:babel-runtime@5.8.38/helpers/get.js', 'npm:babel-runtime@5.8.38/helpers/inherits.js', 'npm:babel-runtime@5.8.38/helpers/create-class.js', 'npm:babel-runtime@5.8.38/helpers/class-call-check.js', 'npm:babel-runtime@5.8.38/core-js/promise.js', 'npm:react@16.9.0.js', 'sibaguide/guia/GuiaHelper.js', 'sibaguide/guia/Guia.js'], function (_export) {
+	var _get, _inherits, _createClass, _classCallCheck, _Promise, React, GuiaHelper, Guia, GuiaContainer;
 
 	return {
 		setters: [function (_npmBabelRuntime5838HelpersGetJs) {
@@ -25613,8 +25521,6 @@ System.register('sibaguide/guia/GuiaContainer.js', ['npm:babel-runtime@5.8.38/he
 			_createClass = _npmBabelRuntime5838HelpersCreateClassJs['default'];
 		}, function (_npmBabelRuntime5838HelpersClassCallCheckJs) {
 			_classCallCheck = _npmBabelRuntime5838HelpersClassCallCheckJs['default'];
-		}, function (_npmBabelRuntime5838HelpersExtendsJs) {
-			_extends = _npmBabelRuntime5838HelpersExtendsJs['default'];
 		}, function (_npmBabelRuntime5838CoreJsPromiseJs) {
 			_Promise = _npmBabelRuntime5838CoreJsPromiseJs['default'];
 		}, function (_npmReact1690Js) {
@@ -25642,16 +25548,19 @@ System.register('sibaguide/guia/GuiaContainer.js', ['npm:babel-runtime@5.8.38/he
 					this.loadFlags = this.loadFlags.bind(this);
 					this.checkFlags = this.checkFlags.bind(this);
 					this.timeChangeAgent = this.timeChangeAgent.bind(this);
-
+					this.loadGuiaData = this.loadGuiaData.bind(this);
+					this.changeState = this.changeState.bind(this);
 					//Define los valores que se pueden calcular de manera directa
 					var dateNow = new Date();
+					//dateNow.setTime(dateNow.getTime() + (props.sgconf.guia.timezone * 60 * 60 * 1000));
 					var startTimeBlock = this.getLast15MinutesBlock(dateNow);
 
 					//Definiendo el estado inicial
 					this.state = {
 						localFlag: '',
 						gralFlag: '',
-						startTime: startTimeBlock
+						startTime: startTimeBlock,
+						dataGuia: {}
 					};
 				}
 
@@ -25660,13 +25569,18 @@ System.register('sibaguide/guia/GuiaContainer.js', ['npm:babel-runtime@5.8.38/he
 					value: function componentDidMount() {
 						var _this = this;
 
-						console.log("Esta es la ejecucion de GuiaContainer.componentDidMount()");
+						console.log("GuiaContainer.componentDidMount()");
 						this.flagsTimer = setInterval(function () {
 							_this.checkFlags();
 						}, 5000);;
 						this.timeAgentTimer = setInterval(function () {
 							_this.timeChangeAgent();
 						}, 1000);
+					}
+				}, {
+					key: 'componentDidUpdate',
+					value: function componentDidUpdate() {
+						console.log('GuiaContainer.componentDidUpdate()');
 					}
 				}, {
 					key: 'componenWillUnmount',
@@ -25679,26 +25593,71 @@ System.register('sibaguide/guia/GuiaContainer.js', ['npm:babel-runtime@5.8.38/he
      	Custom functions
      */
 
+				}, {
+					key: 'changeState',
+					value: function changeState(newStateValues) {
+
+						console.log("Antiguo State");
+						console.log(this.state);
+
+						console.log("El objeto de parametros enviado GuiaContainer.changeSate()");
+						console.log(newStateValues);
+						/* Cambia el estado con cambio del tiempo */
+						var fieldsToUpdate = {
+							localFlag: this.state.localFlag,
+							gralFlag: this.state.gralFlag,
+							startTime: this.state.startTime,
+							dataGuia: this.state.dataGuia
+						};
+
+						if (typeof newStateValues.startTime != 'undefined') {
+							fieldsToUpdate.startTime = newStateValues.startTime;
+						}
+
+						if (typeof newStateValues.gralFlag != 'undefined') {
+							fieldsToUpdate.gralFlag = newStateValues.gralFlag;
+						}
+
+						if (typeof newStateValues.localFlag != 'undefined') {
+							fieldsToUpdate.localFlag = newStateValues.localFlag;
+						}
+
+						if (typeof newStateValues.dataGuia != 'undefined') {
+							fieldsToUpdate.dataGuia = newStateValues.dataGuia;
+						}
+
+						console.log("Nuevo State");
+						console.log(fieldsToUpdate);
+
+						console.log("================================\n");
+						this.setState(function (prevState) {
+							return fieldsToUpdate;
+						});
+					}
+
 					/*
      	Este agente verifica si se ha cambiado del bloque de 15 minutos 
      	para modificar (recargar) la parrilla
      */
+
 				}, {
 					key: 'timeChangeAgent',
 					value: function timeChangeAgent() {
-						var actualDate = new Date();
-						actualDate = this.getLast15MinutesBlock(actualDate);
-						if (actualDate.valueOf() != this.state.startTime.valueOf()) {
-							this.setState(function (prevState) {
-								//console.log("Estado previo...");
-								//console.log(prevState);
-								var newState = _extends({}, prevState);
-								newState.startTime = actualDate;
-								//console.log("Estado nuevo...");
-								//console.log(newState);
-								return newState;
-							});
-						}
+						var self = this;
+						setTimeout(function () {
+							var timeChangeDate = new Date();
+							//timeChangeDate.setTime(timeChangeDate.getTime() + (self.props.sgconf.guia.timezone * 60 * 60 * 1000));
+							//timeChangeDate.setTime(timeChangeDate.getTime() + (self.props.sgconf.guia.timezone * 60 * 60 * 1000));
+							timeChangeDate = self.getLast15MinutesBlock(timeChangeDate);
+							if (timeChangeDate.valueOf() != self.state.startTime.valueOf()) {
+
+								console.log("Son diferentes los getDay()?: " + timeChangeDate.getDay() + " - " + self.state.startTime.getDay() + "");
+								if (timeChangeDate.getDay() != self.state.startTime.getDay()) self.loadGuiaData({ startTime: timeChangeDate });else {
+									console.log("GuiaContainer.timeChangeAgent() Llamando desde...");
+									self.changeState({ startTime: timeChangeDate });
+								}
+							}
+						}, 1000);
 					}
 
 					//Verifica si las banderas general y/o local han sido modificadas
@@ -25708,16 +25667,10 @@ System.register('sibaguide/guia/GuiaContainer.js', ['npm:babel-runtime@5.8.38/he
 						var _this2 = this;
 
 						this.loadFlags().then(function (rawFlagsVals) {
-							if (rawFlagsVals.localFlagChecker != _this2.state.localFlag || rawFlagsVals.gralFlagChecker != _this2.state.gralFlag) _this2.setState(function (prevState) {
-								//console.log("Estado previo...");
-								//console.log(prevState);
-								var newState = _extends({}, prevState);
-								newState.localFlag = rawFlagsVals.localFlagChecker;
-								newState.gralFlag = rawFlagsVals.gralFlagChecker;
-								//console.log("Estado nuevo...");
-								//console.log(newState);
-								return newState;
-							});
+							if (rawFlagsVals.localFlagChecker != _this2.state.localFlag || rawFlagsVals.gralFlagChecker != _this2.state.gralFlag) {
+
+								_this2.loadGuiaData({ localFlag: rawFlagsVals.localFlagChecker, gralFlag: rawFlagsVals.gralFlagChecker });
+							}
 						});
 					}
 
@@ -25767,9 +25720,40 @@ System.register('sibaguide/guia/GuiaContainer.js', ['npm:babel-runtime@5.8.38/he
 						}
 					}
 				}, {
+					key: 'loadGuiaData',
+					value: function loadGuiaData(paramsToChangeState) {
+						var _this4 = this;
+
+						var self = this;
+						var dayOfWeek = this.state.startTime.getDay();
+						if (typeof paramsToChangeState.startTime != 'undefined') {
+							dayOfWeek = paramsToChangeState.startTime.getDay();
+						}
+
+						if (dayOfWeek == 0) {
+							//Ajuste el domingo a valor = 7, por que el objeto JS date define el domingo como = 0
+							dayOfWeek = 7;
+						}
+						GuiaHelper.dataGuiaLoader("h_" + parseInt(parseInt(dayOfWeek)) + "_" + this.props.sgconf.id + ".xml").then(function (xmlData) {
+							//this.dataGuiaXml = xmlData;
+							paramsToChangeState.dataGuia = xmlData;
+							console.log("GuiaContainer.loadGuiaData() Llamando desde...");
+							_this4.changeState(paramsToChangeState);
+							console.log(xmlData);
+						})['catch'](function (error) {
+							console.log("Ocurrio un error cargando el contenido de la guia... Guia.loadGuiaData()");
+							console.log(error);
+						});
+					}
+				}, {
 					key: 'render',
 					value: function render() {
-						return React.createElement(Guia, { sgconf: this.props.sgconf, startTime: this.state.startTime });
+						console.log("GuiaContainer.render()");
+						if (typeof this.state.dataGuia.URL != 'undefined') {
+							return React.createElement(Guia, { sgconf: this.props.sgconf, startTime: this.state.startTime, dataGuia: this.state.dataGuia });
+						} else {
+							return React.createElement('h1', null);
+						}
 					}
 				}]);
 

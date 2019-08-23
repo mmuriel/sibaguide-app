@@ -7,6 +7,8 @@ var sgConf = {
 		minWidthBox: 31.6
 	},
 	guia: {
+		timezone: -5,
+		secondsChannel: 3,
 	}
 }
 

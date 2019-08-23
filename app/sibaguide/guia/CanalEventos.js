@@ -9,7 +9,7 @@ class CanalEventos extends React.Component{
 		super(props);
 
 		this.getFirst15MinsBlock = this.getFirst15MinsBlock.bind(this);
-		this.serachForFirstEventName = this.serachForFirstEventName.bind(this);
+		this.searchForFirstEventName = this.searchForFirstEventName.bind(this);
 	}
 	getFirst15MinsBlock(){
 
@@ -17,19 +17,27 @@ class CanalEventos extends React.Component{
 		let minBlocks = parseInt((this.props.startTime.getMinutes()) / 15);
 		return parseInt(hourBlocks + minBlocks);
 	}
-	serachForFirstEventName(){
+	searchForFirstEventName(){
 
 		let index = this.getFirst15MinsBlock();
-		while (this.props.eventos[index].getAttribute('value') == 'idem' && index > 0){
-			index--;
+		try {
+			while (this.props.eventos[index].getAttribute('value') == 'idem' && index >= 0){
+				index--;
+			}
+			//console.log("Valor del inidice: "+index);
+			//console.log(this.props.eventos[index].getAttribute('value'));
+			return this.props.eventos[index].getAttribute('value');
 		}
-		//console.log("Valor del inidice: "+index);
-		//console.log(this.props.eventos[index].getAttribute('value'));
-		return this.props.eventos[index].getAttribute('value');
+		catch(error){
+			console.log(error);
+			console.log(index);
+			return ("Continuación...");
+		}
+		
 	}
 	render(){
 
-		let eventName = this.serachForFirstEventName();
+		let eventName = this.searchForFirstEventName();
 		let index = this.getFirst15MinsBlock();
 		let listaEventos = [];
 		let longBox = 0;

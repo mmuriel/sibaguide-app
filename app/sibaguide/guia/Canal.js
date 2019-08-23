@@ -15,6 +15,7 @@ class Canal extends React.Component{
 
 	render(){
 
+		console.log("Canal.render()");
 		//console.log(this.props.eventos);
 		let reactListKey = this.props.canalInfo.getAttribute('cadena');
 		let eventos = [];
