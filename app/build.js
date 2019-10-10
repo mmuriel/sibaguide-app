@@ -25402,9 +25402,15 @@ System.register('sibaguide/guia/ListaCanales.js', ['npm:babel-runtime@5.8.38/hel
 						if (typeof this.props.dataGuia.URL == 'undefined') return false;
 						var divGuiaContairer = document.getElementById("grid_box");
 						var cssHtmlTag = document.createElement("style");
-						var qtyChannels = this.props.dataGuia.childNodes[0].childNodes.length;
+						var qtyChannels = 0;
 						//console.log("Cantidad de canales disponibles en ListaCanales.startAnimation()");
 						//console.log(qtyChannels);
+						for (var i = 0; i < this.props.dataGuia.childNodes[0].childNodes.length; i++) {
+							//let chnName = this.props.dataGuia.childNodes[0].childNodes[i].getAttribute('name');
+							if (this.props.dataGuia.childNodes[0].childNodes[i].childNodes.length >= 86) {
+								qtyChannels++;
+							}
+						}
 						var cssRules = document.createTextNode("@keyframes guia{from {top: 205px} to{top: -" + parseInt(64 * qtyChannels) + "px}} #grid_box ul.canales-list{ animation-name: guia; animation-timing-function: linear; animation-iteration-count: infinite; animation-play-state: running; animation-duration: " + qtyChannels * this.props.sgconf.guia.secondsChannel + "s;}");
 						cssHtmlTag.appendChild(cssRules);
 						divGuiaContairer.appendChild(cssHtmlTag);
