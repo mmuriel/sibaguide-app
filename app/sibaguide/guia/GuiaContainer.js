@@ -28,12 +28,12 @@ class GuiaContainer extends React.Component{
 		}
 	}
 	componentDidMount(){
-		console.log("GuiaContainer.componentDidMount()");
+		//console.log("GuiaContainer.componentDidMount()");
 		this.flagsTimer = setInterval(()=>{this.checkFlags();},5000);;
 		this.timeAgentTimer = setInterval(()=>{this.timeChangeAgent();},1000);
 	}
 	componentDidUpdate(){
-		console.log('GuiaContainer.componentDidUpdate()');
+		//console.log('GuiaContainer.componentDidUpdate()');
 	}
 	componenWillUnmount(){
 		clearInterval(this.flagsTimer);
@@ -47,11 +47,11 @@ class GuiaContainer extends React.Component{
 	changeState(newStateValues){
 
 
-		console.log("Antiguo State");
-		console.log(this.state);
+		//console.log("Antiguo State");
+		//console.log(this.state);
 
-		console.log("El objeto de parametros enviado GuiaContainer.changeSate()");
-		console.log(newStateValues);
+		//console.log("El objeto de parametros enviado GuiaContainer.changeSate()");
+		//console.log(newStateValues);
 		/* Cambia el estado con cambio del tiempo */
 		let fieldsToUpdate = {
 			localFlag: this.state.localFlag,

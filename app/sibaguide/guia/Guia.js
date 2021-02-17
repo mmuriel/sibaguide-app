@@ -24,7 +24,6 @@ class Guia extends React.Component{
 
 
 	render(){
-		console.log("Guia.render()");
 		return (<ListaCanales sgconf={this.props.sgconf} startTime={this.props.startTime} dataGuia={this.props.dataGuia} />);
 	}
 }

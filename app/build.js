@@ -22695,23 +22695,23 @@ System.register("sibaguide/guia/GuiaHelper.js", ["npm:babel-runtime@5.8.38/core-
 		}
 	};
 });
-System.register("sibaguide/guia/CanalInfo.js", ["npm:babel-runtime@5.8.38/helpers/get.js", "npm:babel-runtime@5.8.38/helpers/inherits.js", "npm:babel-runtime@5.8.38/helpers/create-class.js", "npm:babel-runtime@5.8.38/helpers/class-call-check.js", "npm:react@16.9.0.js"], function (_export) {
+System.register('sibaguide/guia/CanalInfo.js', ['npm:babel-runtime@5.8.38/helpers/get.js', 'npm:babel-runtime@5.8.38/helpers/inherits.js', 'npm:babel-runtime@5.8.38/helpers/create-class.js', 'npm:babel-runtime@5.8.38/helpers/class-call-check.js', 'npm:react@16.9.0.js'], function (_export) {
 	var _get, _inherits, _createClass, _classCallCheck, React, CanalInfo;
 
 	return {
 		setters: [function (_npmBabelRuntime5838HelpersGetJs) {
-			_get = _npmBabelRuntime5838HelpersGetJs["default"];
+			_get = _npmBabelRuntime5838HelpersGetJs['default'];
 		}, function (_npmBabelRuntime5838HelpersInheritsJs) {
-			_inherits = _npmBabelRuntime5838HelpersInheritsJs["default"];
+			_inherits = _npmBabelRuntime5838HelpersInheritsJs['default'];
 		}, function (_npmBabelRuntime5838HelpersCreateClassJs) {
-			_createClass = _npmBabelRuntime5838HelpersCreateClassJs["default"];
+			_createClass = _npmBabelRuntime5838HelpersCreateClassJs['default'];
 		}, function (_npmBabelRuntime5838HelpersClassCallCheckJs) {
-			_classCallCheck = _npmBabelRuntime5838HelpersClassCallCheckJs["default"];
+			_classCallCheck = _npmBabelRuntime5838HelpersClassCallCheckJs['default'];
 		}, function (_npmReact1690Js) {
-			React = _npmReact1690Js["default"];
+			React = _npmReact1690Js['default'];
 		}],
 		execute: function () {
-			"use strict";
+			'use strict';
 
 			CanalInfo = (function (_React$Component) {
 				_inherits(CanalInfo, _React$Component);
@@ -22719,33 +22719,52 @@ System.register("sibaguide/guia/CanalInfo.js", ["npm:babel-runtime@5.8.38/helper
 				function CanalInfo(props) {
 					_classCallCheck(this, CanalInfo);
 
-					_get(Object.getPrototypeOf(CanalInfo.prototype), "constructor", this).call(this, props);
+					_get(Object.getPrototypeOf(CanalInfo.prototype), 'constructor', this).call(this, props);
 				}
 
 				_createClass(CanalInfo, [{
-					key: "render",
+					key: 'render',
 					value: function render() {
-						return React.createElement(
-							"div",
-							{ className: "canal__info" },
-							React.createElement(
-								"div",
-								{ className: "canal__info__frecuencia" },
-								parseFloat(this.props.canalInfo.getAttribute('cadena') / 100)
-							),
-							React.createElement(
-								"div",
-								{ className: "canal__info__nombre" },
-								this.props.canalInfo.getAttribute('name')
-							)
-						);
+						if (this.props.sgconf.guia.lncFormat == 'dec') {
+							return React.createElement(
+								'div',
+								{ className: 'canal__info' },
+								React.createElement(
+									'div',
+									{ className: 'canal__info__frecuencia' },
+									parseFloat(this.props.canalInfo.getAttribute('cadena') / 100)
+								),
+								React.createElement(
+									'div',
+									{ className: 'canal__info__nombre' },
+									this.props.canalInfo.getAttribute('name')
+								)
+							);
+						} else {
+
+							console.log("MMMAAAAAA");
+							return React.createElement(
+								'div',
+								{ className: 'canal__info' },
+								React.createElement(
+									'div',
+									{ className: 'canal__info__frecuencia' },
+									parseFloat(this.props.canalInfo.getAttribute('cadena'))
+								),
+								React.createElement(
+									'div',
+									{ className: 'canal__info__nombre' },
+									this.props.canalInfo.getAttribute('name')
+								)
+							);
+						}
 					}
 				}]);
 
 				return CanalInfo;
 			})(React.Component);
 
-			_export("default", CanalInfo);
+			_export('default', CanalInfo);
 		}
 	};
 });
@@ -25314,8 +25333,6 @@ System.register('sibaguide/guia/Canal.js', ['npm:babel-runtime@5.8.38/helpers/ge
 				_createClass(Canal, [{
 					key: 'render',
 					value: function render() {
-
-						console.log("Canal.render()");
 						//console.log(this.props.eventos);
 						var reactListKey = this.props.canalInfo.getAttribute('cadena');
 						var eventos = [];
@@ -25327,7 +25344,7 @@ System.register('sibaguide/guia/Canal.js', ['npm:babel-runtime@5.8.38/helpers/ge
 						return React.createElement(
 							'li',
 							{ className: 'canal', key: reactListKey },
-							React.createElement(CanalInfo, { canalInfo: this.props.canalInfo }),
+							React.createElement(CanalInfo, { canalInfo: this.props.canalInfo, sgconf: this.props.sgconf }),
 							React.createElement(CanalEventos, { eventos: eventos, startTime: this.props.startTime, canalKey: reactListKey })
 						);
 					}
@@ -25503,7 +25520,6 @@ System.register('sibaguide/guia/Guia.js', ['npm:babel-runtime@5.8.38/helpers/get
 				}, {
 					key: 'render',
 					value: function render() {
-						console.log("Guia.render()");
 						return React.createElement(ListaCanales, { sgconf: this.props.sgconf, startTime: this.props.startTime, dataGuia: this.props.dataGuia });
 					}
 				}]);
@@ -25575,7 +25591,7 @@ System.register('sibaguide/guia/GuiaContainer.js', ['npm:babel-runtime@5.8.38/he
 					value: function componentDidMount() {
 						var _this = this;
 
-						console.log("GuiaContainer.componentDidMount()");
+						//console.log("GuiaContainer.componentDidMount()");
 						this.flagsTimer = setInterval(function () {
 							_this.checkFlags();
 						}, 5000);;
@@ -25586,7 +25602,7 @@ System.register('sibaguide/guia/GuiaContainer.js', ['npm:babel-runtime@5.8.38/he
 				}, {
 					key: 'componentDidUpdate',
 					value: function componentDidUpdate() {
-						console.log('GuiaContainer.componentDidUpdate()');
+						//console.log('GuiaContainer.componentDidUpdate()');
 					}
 				}, {
 					key: 'componenWillUnmount',
@@ -25603,11 +25619,11 @@ System.register('sibaguide/guia/GuiaContainer.js', ['npm:babel-runtime@5.8.38/he
 					key: 'changeState',
 					value: function changeState(newStateValues) {
 
-						console.log("Antiguo State");
-						console.log(this.state);
+						//console.log("Antiguo State");
+						//console.log(this.state);
 
-						console.log("El objeto de parametros enviado GuiaContainer.changeSate()");
-						console.log(newStateValues);
+						//console.log("El objeto de parametros enviado GuiaContainer.changeSate()");
+						//console.log(newStateValues);
 						/* Cambia el estado con cambio del tiempo */
 						var fieldsToUpdate = {
 							localFlag: this.state.localFlag,
@@ -25787,7 +25803,6 @@ System.register('startup.js', ['npm:react@16.9.0.js', 'npm:react-dom@16.9.0.js',
 
 			//Esta variable, sgConf, es una variable de configuracion
 			//definida en el archivo sibaguide/js/conf.js
-
 			posicion = {
 				xpos: 0,
 				ypos: 0

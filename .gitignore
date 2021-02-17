@@ -62,3 +62,9 @@ typings/
 
 # modules
 node_modules/*
+
+
+#SIBAGUIDE
+#Ignora todos los archivos de datos
+app/*.xml
+app/*.flg
